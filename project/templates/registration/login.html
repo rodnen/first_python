@@ -1,9 +1,10 @@
 {% extends 'header.html' %} &nbsp;{% block content %}
-<h2>Log In</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Log In</button>
-</form>
-<a href="signup">Sign up</a>
+<div class="post-entry">
+  <p class="post_title">Авторизация</p>
+  <form class="login" action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <button class="send_login" type="submit">Войти</button>
+  </form>
+  </div>
 {% endblock content %}
+

@@ -8,7 +8,7 @@
 </head>
 <header>
     <div class="nav-left">
-        <h1><a href="{% url 'home' %}">Django blog</a></h1>
+       <a href="{% url 'home' %}">Django blog</a>
     
     </div>
     <ul class="menu">
@@ -16,20 +16,21 @@
         <li><a href="{% url 'posts' %}">Публикации</a></li>
         <li><a href="{% url 'cabinet' %}">Кабинет</a></li>
         <li><a href="admin">Admin</a></li>
+        <li>{% if user.is_authenticated %}
+          <p><a href="{% url 'logout' %}">Выйти</a></p>
+        {% else %}
+          <a href="{% url 'login' %}">Войти</a>
+          <li><p><a href="{% url 'signup' %}">Регистрация</a></p></li>
+        {% endif %} </li>
     </ul>
 
-    
-      <div class="nav-right">
-        <a href="{% url 'post_new' %}">+ Новый пост</a>
-      </div>
   </header>
-  {% if user.is_authenticated %}
-        <p>Hi {{ user.username }}!</p>
-        <p><a href="{% url 'logout' %}">Выйти</a></p>
-      {% else %}
-        <p>You are not logged in.</p>
-        <a href="{% url 'login' %}">Войти</a>
-      {% endif %} 
+  <div class="wrapper">
+    {% if user.is_authenticated %}
+          <p class="auth">Привет, {{ user.username }}!</p>
+        {% else %}
+          <p class="auth">Вы не авторизовались.</p>
+        {% endif %} </li>
   <div>
     {% block content %}
     {% endblock content %}

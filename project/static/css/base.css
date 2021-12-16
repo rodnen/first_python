@@ -1,17 +1,36 @@
 body {
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 18px;
+    margin: 0;
+    padding: 0;
   }
-   
+  
+.wrapper{
+  height: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 1px 1px 1px #dedede,-1px 1px 1px #dedede;
+}
   header {
+    height: 30px;
+    font-size: 14px;
     border-bottom: 1px solid #999;
-    margin-bottom: 2rem;
     display: flex;
+    background: #417690;
+    padding: 10px 40px;
   }
-   
-  header h1 a {
-    color: red;
+  .auth{
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+  }
+  header .nav-left a {
+    font-size: 24px;
+    font-weight: 300;
+    color: #f5dd5d;
     text-decoration: none;
+    display: flex;
+    align-items: center;
   }
   .menu {
     list-style: none;
@@ -22,7 +41,7 @@ body {
     padding: 10px;
   }
   header a {
-    color: red;
+    color: #fff;
     text-decoration: none;
     display: flex;
     
@@ -34,28 +53,72 @@ body {
    
   .nav-right {
     display: flex;
-    padding-top: 2rem;
+    justify-content: end;
+    padding: 30px;
+  }
+  .post_actions a{
+    padding: 10px;
+    color: #447e9b;
+    text-decoration: none;
+  }
+  .nav-right a:hover{
+    opacity: 0.9;
   }
    
   .post-entry {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 750px;
     margin-bottom: 2rem;
+    height: auto;
+    box-shadow: 0 1px 2px #dedede; 
   }
-   
-  .post-entry h2 {
+  .post-entry:hover{
+    background: #f8f8f8 ;
+  }
+  .post-entry:hover .post_title{
+    background: linear-gradient(145deg,#79B7C8,#74A5BE)
+  }
+  .post-entry .post_title {
+    padding: 5px;
     margin: 0.5rem 0;
+    background:linear-gradient(145deg,#79B7C8,#79aec8);
   }
    
-  .post-entry h2 a,
-  .post-entry h2 a:visited {
-    color: blue;
+  .post-entry a,
+  .post-entry a:visited {
+    color: #fff;
     text-decoration: none;
   }
    
-  .post-entry p {
+  .post-entry .post_body {
+    box-shadow: 1px 1px 1px #dedede;
+    padding: 15px;
     margin: 0;
     font-weight: 400;
   }
    
-  .post-entry h2 a:hover {
-    color: red;
+  .post-entry a:hover {
+    opacity: 0.9;
+  }
+
+  .post-entry .add{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center
+  }
+  .post-entry .login{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .post-entry .send{
+    margin: 170px 10px 10px 10px;
+  }
+  .post-entry form select{
+    flex-direction: row;
+  }
+  .post-entry .send_login{
+    margin: 10px;
   }

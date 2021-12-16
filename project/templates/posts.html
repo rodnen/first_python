@@ -1,9 +1,10 @@
 {% extends 'header.html' %}   
   {% block content %}
-  <h1>Публикации</h1>
-  <ul>
-    {% for post in all_posts_list %}
-        <li>{{post.text }}</li>
-    {% endfor %}
-</ul>
+  <div class="post-entry">
+  <p class="post_title">Публикации</p>
+  {% for post in all_posts_list %}
+      <div class="post_body">{{post.text }}</div>
+  {% endfor %}
+
+</div>
   {% endblock content %}

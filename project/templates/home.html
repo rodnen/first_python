@@ -1,13 +1,16 @@
 {% extends 'header.html' %}
  
 {% block content %}
-<h1>Новые посты блога</h1>
+<div class="nav-right post_actions">
+    <a href="{% url 'post_new' %}">+ Новый пост</a>
+  </div>
 {% for post in object_list %}
 <div class="post-entry">
-    <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
-    <p>{{ post.body }}</p>
+    <p class="post_title"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></p>
+    <p class="post_body">{{ post.body }}</p>
 </div>
 {% endfor %}
+</div>
 {% endblock content %}
 
 

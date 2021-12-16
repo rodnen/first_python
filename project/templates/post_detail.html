@@ -2,10 +2,11 @@
 {% extends 'header.html' %}
 {% block content %}
   <div class='post-entry'>
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.body }}</p>
+    <p class="post_title">{{ post.title }}</p>
+    <p class="post_body">{{ post.body }}</p>
   </div>
- 
-  <a href='{% url 'post_edit' post.pk %}'>+ Edit Blog Post</a>
-  <p><a href="{% url 'post_delete' post.pk %}">+ Delete Blog Post</a></p>
+<div class="post_actions">
+    <a href='{% url 'post_edit' post.pk %}'>+ Редактировать публикацию</a>
+    <p><a href="{% url 'post_delete' post.pk %}">+ Удалить публикацию</a></p>
+</div>
 {% endblock content %}
