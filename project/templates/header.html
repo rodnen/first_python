@@ -1,0 +1,36 @@
+<!-- templates/base.html -->
+{% load static %}
+<html>
+<head>
+    <title>Django blog</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+</head>
+<header>
+    <div class="nav-left">
+        <h1><a href="{% url 'home' %}">Django blog</a></h1>
+    
+    </div>
+    <ul class="menu">
+        <li><a href="{% url 'home' %}">Блог</a></li>
+        <li><a href="{% url 'posts' %}">Публикации</a></li>
+        <li><a href="{% url 'cabinet' %}">Кабинет</a></li>
+        <li><a href="admin">Admin</a></li>
+    </ul>
+
+    
+      <div class="nav-right">
+        <a href="{% url 'post_new' %}">+ Новый пост</a>
+      </div>
+  </header>
+  {% if user.is_authenticated %}
+        <p>Hi {{ user.username }}!</p>
+        <p><a href="{% url 'logout' %}">Выйти</a></p>
+      {% else %}
+        <p>You are not logged in.</p>
+        <a href="{% url 'login' %}">Войти</a>
+      {% endif %} 
+  <div>
+    {% block content %}
+    {% endblock content %}
+  </div>

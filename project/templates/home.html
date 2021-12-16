@@ -1,7 +1,13 @@
-<!-- templates/home.html -->
-<h1>Message board homepage</h1>
-<ul>
-    {% for post in all_posts_list %}
-        <li>{{ post.text }}</li>
-    {% endfor %}
-</ul>
+{% extends 'header.html' %}
+ 
+{% block content %}
+<h1>Новые посты блога</h1>
+{% for post in object_list %}
+<div class="post-entry">
+    <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+    <p>{{ post.body }}</p>
+</div>
+{% endfor %}
+{% endblock content %}
+
+
