@@ -1,12 +1,18 @@
 {% extends 'header.html' %}
  
 {% block content %}
+{% if user.is_authenticated %}
 <div class="nav-right post_actions">
     <a href="{% url 'post_new' %}">+ Новый пост</a>
   </div>
+{% endif%}
 {% for post in object_list %}
 <div class="post-entry">
+  {% if user.is_authenticated %}
     <p class="post_title"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></p>
+    {% else %}
+    <p class="post_title">{{ post.title }}</p>
+  {% endif %} </li>
     <p class="post_body">{{ post.body }}</p>
 </div>
 {% endfor %}
