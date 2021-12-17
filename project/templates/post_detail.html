@@ -1,6 +1,7 @@
 <!-- templates/post_detail.html -->
 {% extends 'header.html' %}
 {% block content %}
+{% if user.is_authenticated %}
   <div class='post-entry'>
     <p class="post_title">{{ post.title }}</p>
     <p class="post_body">{{ post.body }}</p>
@@ -9,4 +10,5 @@
     <a href='{% url 'post_edit' post.pk %}'>+ Редактировать публикацию</a>
     <p><a href="{% url 'post_delete' post.pk %}">+ Удалить публикацию</a></p>
 </div>
+{% endif %}
 {% endblock content %}
